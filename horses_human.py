@@ -12,7 +12,7 @@ class myCallback(tf.keras.callbacks.Callback):
             print("hai raggiunto una accuracy del 95%")
 
 
-training_dir = "D:\AI Fatti Mia\libro tensorflow\datasets\Horse or Human\Images\Training"
+training_dir = "path\datasets\Horse or Human\Images\Training"
 train_datagen = ImageDataGenerator(
     rescale=1/255.0,
     rotation_range=40,
@@ -28,7 +28,7 @@ train_generator = train_datagen.flow_from_directory(
     class_mode= 'binary'
 )
 
-validation_dir = "D:\AI Fatti Mia\libro tensorflow\datasets\Horse or Human\Images\Validation"
+validation_dir = "path\datasets\Horse or Human\Images\Validation"
 validation_datagen = ImageDataGenerator(rescale=1/255.0)
 validation_generator = validation_datagen.flow_from_directory(
     validation_dir,
@@ -65,9 +65,9 @@ history = model.fit_generator(
     callbacks = callback
 )
 
-model.save('D:\AI Fatti Mia\libro tensorflow\modelli\horse-human1')
+model.save('path\models\horse-human1')
 
-print("inserisci il path di una immagine da testare")
+print("insert path of the image you want to test")
 path = input()
 while path is not None:
     img = image.load_img(path, target_size=(300, 300))
@@ -81,5 +81,5 @@ while path is not None:
         print("it's a human")
     else:
         print("it's a horse")
-    print("inserisci un path di una immagine da testare")
+    print("insert path of the image you want to test")
     path = input()
